@@ -1,36 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <title>Weather Dashboard</title>
-</head>
-<body>
-   
-    <div class="container">
-        <header class="row">Weather Dashboard</header>
-        <div class="row">
-            <div class="col-sm-4">
-                Search by City:
-            </div>
-            <div class="col-sm-8">
-                <div class="row">
-                    <div class="col-sm-12">
 
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-2"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./assets/css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<title>Weather Dashboard</title>
+</head>
+
+<body class="container">
+
+
+	<header class="jumbotron">
+		<h1 class="display-4">Weather Dashboard</h1>
+		<p class="lead">Check the weather for any location!</p>
+		<hr class="my-4">
+		<p>
+			Type the city name you wish to see the weather for. You will see the current day forecast, <em>plus</em> the
+			5-day outlook! Recent searches will be saved for easy access.
+		</p>
+	</header>
+
+	<main class="row">
+
+		<div class="col-sm-4 p-3">
+			Search by City:
+			<input type="text" class="mt-2" placeholder="Kansas City"></input><br>
+			<button type="submit" class="btn btn-info mt-3">Search</button>
+		</div>
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-12 p-3">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quisquam aut culpa, magnam eum quia ratione,
+					maxime omnis iure reprehenderit quo! Ex, quod! Ipsa aliquid laboriosam tenetur doloremque, exercitationem
+					commodi.
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-2 p-3">card 1</div>
+				<div class="col-sm-2 p-3">card 2</div>
+				<div class="col-sm-2 p-3">card 3</div>
+				<div class="col-sm-2 p-3">card 4</div>
+				<div class="col-sm-2 p-3">card 5</div>
+			</div>
+		</div>
+	</main>
+
 </body>
+
 </html>
