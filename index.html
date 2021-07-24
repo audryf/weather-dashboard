@@ -26,16 +26,24 @@
 
 	<main class="row">
 
-		<div class="col-sm-4 p-3">
-			Search by City:
-			<input type="text" class="mt-2" placeholder="Kansas City"></input><br>
-			<button type="submit" class="btn btn-info mt-3">Search</button>
+		<div class="col-sm-4 p-3" id="search">
+			
+			<label for="city-name">Search by City: </label>
+			<input type="text" id="city-name" placeholder="Overland Park"></input><br>
+			<label for="state-code" class="pt-2">Enter state abbr.</label>
+			<input type="text" id="state-code" placeholder="KS"></input><br>
+			<button type="submit" class="btn btn-info mt-3" id="search-btn">Search</button><br>
+			<div class="border p-2 mt-2" id="saved-searches">
+				This is where saved searches will show up.
+			</div>
 		</div>
 		<div class="col-sm-8">
 			<div class="row">
 				<div class="col-sm-12 p-3">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quisquam aut culpa, magnam eum quia ratione,
-					maxime omnis iure reprehenderit quo! Ex, quod! Ipsa aliquid laboriosam tenetur doloremque, exercitationem
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quisquam aut culpa, magnam eum quia
+					ratione,
+					maxime omnis iure reprehenderit quo! Ex, quod! Ipsa aliquid laboriosam tenetur doloremque,
+					exercitationem
 					commodi.
 				</div>
 			</div>
@@ -48,7 +56,8 @@
 			</div>
 		</div>
 	</main>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="./assets/js/script.js"></script>
 </body>
 
 </html>
