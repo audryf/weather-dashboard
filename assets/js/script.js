@@ -47,7 +47,7 @@ var getWeather = function (lookupLocation) {
 								return forecastResponse.json()
 									.then(function (forecastData) {
 										console.log(forecastData);
-										
+
 
 										var currentWeather = {
 											todaysDate: moment.unix(forecastData.current.dt).format("M/D/YYYY"),
@@ -57,9 +57,64 @@ var getWeather = function (lookupLocation) {
 											UVindex: forecastData.current.uvi,
 											weatherIcon: forecastData.current.weather[0].icon
 										}
+
+										// dynamically create html elements using this object.
+										var currentCityEl = document.createElement("h1");
+										// add text to created elements
+										currentCityEl.textContent = lookupLocation.toUpperCase();
+										// append created elements
+										currentWeatherEl.appendChild(currentCityEl);
+
+										// create current-weather container
+										var currentDateEl = document.createElement("h2");
+										// add text to created elements
+										currentDateEl.textContent = currentWeather.todaysDate;
+										// append created elements
+										currentWeatherEl.appendChild(currentDateEl);
+
+										// create current-weather container
+										var currentTempEl = document.createElement("div");
+										// add text to created elements
+										currentTempEl.textContent = currentWeather.temp + "℉";
+										// append created elements
+										currentWeatherEl.appendChild(currentTempEl);
+
+										// create current-weather container
+										var currentIconEl = document.createElement("img");
+										// add text to created elements
+										currentIconEl.setAttribute("src", "http://openweathermap.org/img/wn/" + currentWeather.weatherIcon + "@2x.png");
+										// append created elements
+										currentWeatherEl.appendChild(currentIconEl);
+
+										// create current-weather container
+										var currentHumidityEl = document.createElement("div");
+										// add text to created elements
+										currentHumidityEl.textContent = "Humidity: " + currentWeather.humidity + "%";
+										// append created elements
+										currentWeatherEl.appendChild(currentHumidityEl);
+
+										// create current-weather container
+										var currentWindEl = document.createElement("div");
+										// add text to created elements
+										currentWindEl.textContent = "Wind Speed: " + currentWeather.windSpeed + "MPH";
+										// append created elements
+										currentWeatherEl.appendChild(currentWindEl);
+
+										// create current-weather container
+										var currentUVEl = document.createElement("div");
+										// add text to created elements
+										currentUVEl.textContent = "UV Index: " + currentWeather.UVindex;
+										// append created elements
+										currentWeatherEl.appendChild(currentUVEl);
+
+										
+
+
+
+
 										console.log(currentWeather);
 
-										for (var i = 0; i < 5; i ++) {
+										for (var i = 0; i < 5; i++) {
 											var fiveDayForecast = {
 												forecastDate: moment.unix(forecastData.daily[i].dt).format("M/D/YYYY"),
 												forecastTemp: forecastData.daily[i].temp,
@@ -69,7 +124,10 @@ var getWeather = function (lookupLocation) {
 											}
 											console.log(fiveDayForecast);
 										}
-										
+
+										// using a for loop(?)(or in this^ for loop) dynamically create html elements using these objects
+
+
 									})
 							})
 					});
