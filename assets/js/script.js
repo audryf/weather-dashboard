@@ -2,7 +2,7 @@
 var cityInputEl = document.querySelector("#city-name");
 var stateInputEl = document.querySelector("#state-code");
 var searchButtonEl = document.querySelector("#search-btn");
-
+var currentWeatherEl = document.querySelector("#current-weather");
 
 
 
@@ -48,28 +48,35 @@ var getWeather = function (lookupLocation) {
 									.then(function (forecastData) {
 										console.log(forecastData);
 										
-										var date = forecastData.current.dt;
-										var currentDate = moment.unix(date).format("M/D/YYYY");
-										var currentTemp = forecastData.current.temp;
-										var currentHumid = forecastData.current.humidity;
-										var currentWind = forecastData.current.wind_speed;
-										var currentUV = forecastData.current.uvi;
-										var currentIcon = forecastData.current.weather[0].icon;
 
-										console.log("Date:", currentDate, "Temp:", currentTemp, "Humidity:", currentHumid, "Wind Speed:", currentWind, "UV Index:", currentUV, "Weather Icon:", currentIcon);
+										var currentWeather = {
+											todaysDate: moment.unix(forecastData.current.dt).format("M/D/YYYY"),
+											temp: forecastData.current.temp,
+											humidity: forecastData.current.humidity,
+											windSpeed: forecastData.current.wind_speed,
+											UVindex: forecastData.current.uvi,
+											weatherIcon: forecastData.current.weather[0].icon
+										}
+										console.log(currentWeather);
+
+										for (var i = 0; i < 5; i ++) {
+											var fiveDayForecast = {
+												forecastDate: moment.unix(forecastData.daily[i].dt).format("M/D/YYYY"),
+												forecastTemp: forecastData.daily[i].temp,
+												forecastHumidity: forecastData.daily[i].humidity,
+												forecastWind: forecastData.daily[i].wind_speed,
+												forecastIcon: forecastData.daily[i].weather[0].icon
+											}
+											console.log(fiveDayForecast);
+										}
 										
 									})
 							})
 					});
-
 			} else {
-				alert("error");
+				alert("Error: City not found. Please try again.");
 			}
 		})
-		.then(function () {
-
-		})
-
 };
 
 
