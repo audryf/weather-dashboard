@@ -74,9 +74,9 @@ var getWeather = function (lookupLocation) {
 
 										var currentWeather = {
 											todaysDate: moment.unix(forecastData.current.dt).format("M/D/YYYY"),
-											temp: forecastData.current.temp,
+											temp: Math.floor(forecastData.current.temp),
 											humidity: forecastData.current.humidity,
-											windSpeed: forecastData.current.wind_speed,
+											windSpeed: Math.floor(forecastData.current.wind_speed),
 											UVindex: forecastData.current.uvi,
 											weatherIcon: forecastData.current.weather[0].icon
 										}
@@ -93,24 +93,39 @@ var getWeather = function (lookupLocation) {
 
 										var currentTempEl = document.createElement("div");
 										currentTempEl.textContent = currentWeather.temp + "℉";
+										currentTempEl.classList.add("font-weight-bold");
 										currentWeatherEl.appendChild(currentTempEl);
+
+										
 
 										var currentIconEl = document.createElement("img");
 										currentIconEl.setAttribute("src", "http://openweathermap.org/img/wn/" + currentWeather.weatherIcon + "@2x.png");
-										currentWeatherEl.appendChild(currentIconEl);
 
-										var currentHumidityEl = document.createElement("div");
+										var iconDiv = document.createElement("div");
+										iconDiv.appendChild(currentIconEl);
+										currentWeatherEl.appendChild(iconDiv);
+
+										var currentHumidityEl = document.createElement("span");
 										currentHumidityEl.textContent = "Humidity: " + currentWeather.humidity + "%";
+										currentHumidityEl.classList.add("m-3")
 										currentWeatherEl.appendChild(currentHumidityEl);
 
-										var currentWindEl = document.createElement("div");
+										var currentWindEl = document.createElement("span");
 										currentWindEl.textContent = "Wind Speed: " + currentWeather.windSpeed + "MPH";
+										currentWindEl.classList.add("m-3")
 										currentWeatherEl.appendChild(currentWindEl);
 
-										var currentUVEl = document.createElement("div");
+										var currentUVEl = document.createElement("span");
 										currentUVEl.textContent = "UV Index: " + currentWeather.UVindex;
+										currentUVEl.classList.add("m-3")
+										if (currentWeather.UVindex < 3) {
+											currentUVEl.classList.add("favorable");
+										} else if (currentWeather.UVindex > 3.01 && currentWeather.UVindex < 7) {
+											currentUVEl.classList.add("moderate");
+										} else {
+											currentUVEl.classList.add("severe");
+										}
 										currentWeatherEl.appendChild(currentUVEl);
-
 
 
 
@@ -118,12 +133,16 @@ var getWeather = function (lookupLocation) {
 										var fiveDayEl = document.querySelector("#five-day")
 										console.log(currentWeather);
 										fiveDayEl.innerHTML = ""
-										for (var i = 0; i < 5; i++) {
+
+										var fiveDayTitle = document.querySelector(".five-day-title");
+										fiveDayTitle.classList.add("mt-5")
+										fiveDayTitle.innerHTML = "5-Day Forecast:"
+										for (var i = 1; i < 6; i++) {
 											var fiveDayForecast = {
 												forecastDate: moment.unix(forecastData.daily[i].dt).format("M/D/YYYY"),
-												forecastTemp: forecastData.daily[i].temp.day,
+												forecastTemp: Math.floor(forecastData.daily[i].temp.day),
 												forecastHumidity: forecastData.daily[i].humidity,
-												forecastWind: forecastData.daily[i].wind_speed,
+												forecastWind: Math.floor(forecastData.daily[i].wind_speed),
 												forecastIcon: forecastData.daily[i].weather[0].icon
 											}
 											console.log()
@@ -135,6 +154,8 @@ var getWeather = function (lookupLocation) {
 											
 											var cardEl = document.createElement("div");
 											cardEl.classList.add("card");
+											cardEl.classList.add("bg-info");
+											cardEl.classList.add("text-white");
 
 											var futureTitleEl = document.createElement("h5");
 											futureTitleEl.classList.add("card-title");

@@ -11,7 +11,7 @@
 	<title>Weather Dashboard</title>
 </head>
 
-<body class="container">
+<body class="container bg-light">
 
 
 	<header class="jumbotron">
@@ -19,7 +19,7 @@
 		<p class="lead">Check the weather for any location!</p>
 		<hr class="my-4">
 		<p>
-			Type the city name you wish to see the weather for. You will see the current day forecast, <em>plus</em> the
+			Enter the city and state you wish to see the weather for. You will see the current day forecast, <em>plus</em> the
 			5-day outlook! Recent searches will be saved for easy access.
 		</p>
 	</header>
@@ -30,7 +30,7 @@
 			
 			<label for="city-name">Search by City: </label>
 			<input type="text" id="city-name" placeholder="Overland Park"></input><br>
-			<label for="state-code" class="pt-2">Enter state abbr.</label>
+			<label for="state-code" class="pt-2">Enter State Code:</label>
 			<input type="text" id="state-code" placeholder="KS"></input><br>
 			<button type="submit" class="btn btn-info mt-3" id="search-btn">Search</button><br>
 			<div class="p-2 mt-2 saved-searches">
@@ -43,13 +43,20 @@
 					
 				</div>
 			</div>
-			<h1 class="row ml-1">5-Day Forecast:</h1>
-			<div class="row" id="five-day">
+			
+				<h1 class="row ml-1 five-day-title"></h1>
+				<div class="row" id="five-day">
+			
+			
 				
 				
 			</div>
 		</div>
 	</main>
+	<footer class="text-center mt-5">
+		Made with 🖤 by Audry
+
+	</footer>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="./assets/js/script.js"></script>
 </body>

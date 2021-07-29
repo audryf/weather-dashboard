@@ -1,0 +1,17 @@
+.card {
+    width: 8.5rem;
+    margin: .5rem;
+    padding: .5rem;
+  
+}
+.favorable {
+    background-color: green;
+}
+
+.moderate {
+    background-color: darkorange;
+}
+
+.severe {
+    background-color: red;
+}
