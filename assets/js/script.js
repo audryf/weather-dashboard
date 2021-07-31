@@ -49,7 +49,7 @@ var searchSubmitHandler = function () {
 
 
 var getWeather = function (lookupLocation) {
-	var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + lookupLocation + ",US&appid=933bc50f9aa095b25c8ea39c0e34c2a8";
+	var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + lookupLocation + ",US&appid=933bc50f9aa095b25c8ea39c0e34c2a8";
 
 	fetch(apiUrl)
 		.then(function (coordinates) {
@@ -99,7 +99,7 @@ var getWeather = function (lookupLocation) {
 										
 
 										var currentIconEl = document.createElement("img");
-										currentIconEl.setAttribute("src", "http://openweathermap.org/img/wn/" + currentWeather.weatherIcon + "@2x.png");
+										currentIconEl.setAttribute("src", "https://openweathermap.org/img/wn/" + currentWeather.weatherIcon + "@2x.png");
 
 										var iconDiv = document.createElement("div");
 										iconDiv.appendChild(currentIconEl);
