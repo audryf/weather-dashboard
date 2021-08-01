@@ -173,7 +173,7 @@ var getWeather = function (lookupLocation) {
 
 
 											var futureIconEl = document.createElement("img");
-											futureIconEl.setAttribute("src", "http://openweathermap.org/img/wn/" + fiveDayForecast.forecastIcon + "@2x.png");
+											futureIconEl.setAttribute("src", "https://openweathermap.org/img/wn/" + fiveDayForecast.forecastIcon + "@2x.png");
 											futureBodyEl.appendChild(futureIconEl);
 
 											var futureHumidityEl = document.createElement("div");
